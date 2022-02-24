@@ -1,5 +1,6 @@
 package kg.geektech.filmapp;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -51,14 +52,15 @@ public class FilmDetailFragment extends Fragment {
         });
     }
 
+    @SuppressLint("SetTextI18n")
     private void setFilmDetails(Film film) {
         Glide.with(this).load(film.getMovieBanner()).
                 into(binding.ivMovieBanner);
-        binding.title.setText(film.getTitle());
-        binding.originalTitle.setText(film.getOriginalTitle());
-        binding.director.setText(film.getDirector());
-        binding.producer.setText(film.getProducer());
-        binding.releaseDate.setText(film.getReleaseDate());
-        binding.runningTime.setText(film.getRunningTime());
+        binding.title.setText("Title \n" + film.getTitle() +"\n");
+        binding.originalTitle.setText("Original title \n" + film.getOriginalTitle() +"\n");
+        binding.director.setText("Director \n" + film.getDirector() +"\n");
+        binding.producer.setText("Producer \n" + film.getProducer() +"\n");
+        binding.releaseDate.setText("Release date \n" + film.getReleaseDate() +"\n");
+        binding.runningTime.setText("Running time \n" + film.getRunningTime() +"\n");
     }
 }
